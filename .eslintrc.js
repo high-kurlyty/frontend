@@ -29,6 +29,7 @@ module.exports = {
     "import/resolver": {
       typescript: {},
       "node": {
+        "paths": ["src", "node_modules"],
         "extensions": [".js", ".jsx", ".ts", ".tsx"],
       }
     },
