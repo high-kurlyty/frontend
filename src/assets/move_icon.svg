@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.54 59.76">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #323333;
+        stroke-linecap: square;
+        stroke-miterlimit: 10;
+        stroke-width: 8px;
+      }
+    </style>
+  </defs>
+  <g id="레이어_2" data-name="레이어 2">
+    <g id="레이어_1-2" data-name="레이어 1">
+      <line class="cls-1" x1="29.88" y1="29.88" x2="5.66" y2="5.66" />
+      <line class="cls-1" x1="5.66" y1="54.1" x2="29.88" y2="29.88" />
+    </g>
+  </g>
+</svg>
