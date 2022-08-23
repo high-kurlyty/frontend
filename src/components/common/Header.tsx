@@ -13,6 +13,7 @@ const HeaderWrapper = styled.div`
   width: 1050px;
   padding: 0 10px;
   margin: auto;
+  box-shadow: 0px 3px 0 rgba(0, 0, 0, 0.04);
 `;
 
 const SectionWrapper = styled.div`
@@ -24,7 +25,7 @@ const SectionWrapper = styled.div`
   }
 `;
 
-const HedaerUser = styled(Link)`
+const HeaderUser = styled(Link)`
   display: flex;
   align-items: center;
   font-size: 12px;
@@ -128,10 +129,10 @@ export default function Header() {
     <Container>
       <HeaderWrapper>
         <SectionWrapper>
-          <HedaerUser to="/mypage">
+          <HeaderUser to="/mypage">
             <span>{user.grade}</span>
             <p>{user.name} 님</p>
-          </HedaerUser>
+          </HeaderUser>
         </SectionWrapper>
         <SectionWrapper>
           <HeaderLogo to="/main">

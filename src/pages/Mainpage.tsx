@@ -1,5 +1,5 @@
 import DetailModal from "@/components/common/DetailModal";
-import Header from "@/components/Header";
+import Header from "@/components/common/Header";
 import { useState } from "react";
 
 export default function MainPage() {
