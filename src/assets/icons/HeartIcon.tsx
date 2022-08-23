@@ -1,12 +1,18 @@
-export default function HeartIcon({ color }) {
+export default function HeartIcon({
+  fill,
+  stroke,
+}: {
+  fill: string;
+  stroke: string;
+}) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.22 65.55">
       <g>
         <g>
           <path
             className="cls-1"
-            fill="none"
-            stroke={color}
+            fill={fill}
+            stroke={stroke}
             style={{
               strokeLinecap: "round",
               strokeLinejoin: "round",
