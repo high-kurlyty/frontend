@@ -13,16 +13,22 @@ const GlobalStyle = createGlobalStyle`
     --light-gray-color: #ddd;
 
     --description-text: #999;
+    --text-first: #333;
     --text-second: #666;
   }
 
   body {
     font-family: "Noto Sans", "malgun gothic", AppleGothic, dotum, sans-serif;
     line-height: 1.5;
+    color: var(--text-first);
   }
 
   .Header {
     display: flex;
+  }
+
+  button {
+    cursor: pointer;
   }
 `;
 
