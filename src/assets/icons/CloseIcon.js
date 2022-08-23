@@ -21,6 +21,11 @@ export default function CloseIcon({ color }) {
             className="cls-1"
             fill="none"
             stroke={color}
+            style={{
+              strokeLinecap: "round",
+              strokeMiterlimit: "10",
+              strokeWidth: "5px",
+            }}
             x1="34.8"
             y1="2.5"
             x2="2.5"
