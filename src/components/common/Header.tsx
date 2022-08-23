@@ -2,7 +2,7 @@ import KurlyLogo from "@/assets/kurly_logo.svg";
 import HeartIcon from "@/assets/icons/HeartIcon";
 import styled from "styled-components";
 import { IUserInfo } from "@/modules/UserModule";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   position: relative;
