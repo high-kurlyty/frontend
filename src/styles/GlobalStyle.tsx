@@ -18,11 +18,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
-  
+
   body {
     font-family: "Noto Sans";
     line-height: 1.5;
-    color: var(--text-first);
+    color: var(—-text-first);
+    margin: 0;
   }
 
   .Header {

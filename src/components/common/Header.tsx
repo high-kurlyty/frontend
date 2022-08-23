@@ -2,10 +2,11 @@ import KurlyLogo from "@/assets/kurly_logo.svg";
 import HeartIcon from "@/assets/icons/HeartIcon";
 import styled from "styled-components";
 import { IUserInfo } from "@/modules/UserModule";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Container = styled.div`
   position: relative;
+  margin: 4px;
 `;
 
 const HeaderWrapper = styled.div`
@@ -32,6 +33,7 @@ const HeaderUser = styled(Link)`
   color: var(--text-first);
   letter-spacing: -0.3px;
   text-decoration: none;
+  margin-top: 8px;
   margin-left: auto;
   cursor: pointer;
 
@@ -88,7 +90,7 @@ const HeaderGNBMenu = styled.div`
   display: flex;
   justify-content: center;
   width: 150px;
-  height: 55px;
+  height: 35px;
   padding-top: 18px;
   line-height: 20px;
   text-align: center;
@@ -102,6 +104,10 @@ const HeaderGNBText = styled(Link)`
   cursor: pointer;
   letter-spacing: -0.3px;
   text-decoration: none;
+
+  &.isActive {
+    color: var(--primary-color);
+  }
 
   &:hover {
     color: var(--primary-color);
@@ -124,6 +130,9 @@ export default function Header() {
     { label: "컬리 추천", key: "main", link: "/main" },
     { label: "장바구니 무료공개", key: "cart", link: "/goods-list" },
   ];
+
+  const pathName = window.location.pathname;
+  console.log(pathName);
 
   return (
     <Container>
@@ -150,7 +159,12 @@ export default function Header() {
           {globalNavigation.map((item) => {
             return (
               <HeaderGNBMenu key={item.key}>
-                <HeaderGNBText to={item.link}>{item.label}</HeaderGNBText>
+                <HeaderGNBText
+                  className={pathName === item.link ? "isActive" : ""}
+                  to={item.link}
+                >
+                  {item.label}
+                </HeaderGNBText>
               </HeaderGNBMenu>
             );
           })}
