@@ -22,8 +22,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Noto Sans";
     line-height: 1.5;
-    color: var(—-text-first);
-    margin: 0;
+    color: var(--text-first);
+    width: 1050px;
+    margin: 0 auto;
   }
 
   .Header {
