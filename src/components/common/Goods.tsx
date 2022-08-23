@@ -1,5 +1,5 @@
 import CartIcon from "@/assets/icons/CartIcon";
-import { IGoodsInfo } from "@/modules/GoodsModue";
+import { IGoodsInfo } from "@/modules/GoodsModule";
 import styled from "styled-components";
 
 const Container = styled.div`
