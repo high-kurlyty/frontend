@@ -1,14 +1,25 @@
-import DetailModal from "@/components/common/DetailModal";
 import Header from "@/components/common/Header";
-import { useState } from "react";
+import styled from "styled-components";
+
+import bannerImg from "@/assets/banner.png";
+import GoodsList from "@/components/common/GoodsList";
+
+const Banner = styled.img`
+  width: 100%;
+  min-width: 1050px;
+  height: 370px;
+  object-fit: cover;
+  pointer-events: none;
+`;
 
 export default function MainPage() {
-  const [modal, setModal] = useState(false);
   return (
     <div>
       <Header />
-      <button onClick={() => setModal(true)}>모달 보기</button>
-      <DetailModal show={modal} close={() => setModal(!modal)} />
+      <Banner src={bannerImg} />
+      <GoodsList />
+      <GoodsList />
+      <GoodsList />
     </div>
   );
 }

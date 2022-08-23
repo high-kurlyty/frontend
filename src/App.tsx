@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import GlobalStyle from "@/styles/GlobalStyle";
 
 import MainPage from "@/pages/Mainpage";
@@ -13,7 +13,7 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/" element={<Navigate to="/main" replace />} />
           <Route path="/main" element={<MainPage />} />
           <Route path="/goods-list" element={<GoodsListPage />} />
           <Route path="/mypage" element={<MyPage />} />
