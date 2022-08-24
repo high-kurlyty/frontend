@@ -60,8 +60,6 @@ const Title = styled.span`
 export default function GoodsListPage() {
   const query = useQuery();
   const id = query.get("category");
-
-  let selectedFilter = "all";
   const defaultFilter = [
     { key: "all", label: "전체", selected: true },
     { key: "superUser", label: "슈퍼유저", selected: false },
@@ -69,7 +67,6 @@ export default function GoodsListPage() {
   ];
   const [filter, setFilters] = useState(defaultFilter);
   const selectFilter = (selectedKey: string) => {
-    selectedFilter = selectedKey;
     defaultFilter.map((item) => {
       if (item.key === selectedKey) {
         item.selected = true;
