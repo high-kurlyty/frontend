@@ -135,7 +135,6 @@ const Mock_Goods = [
 const ScrollFooter = () => <span></span>;
 
 export default function GoodsList(cartId: any) {
-  console.log(cartId);
   const items = Mock_Goods;
   const description = Mock_Description;
   const theme = Mock_Theme;
@@ -172,7 +171,4 @@ export default function GoodsList(cartId: any) {
       </Container>
     </>
   );
-}
-function setModal(arg0: boolean): void {
-  throw new Error("Function not implemented.");
 }

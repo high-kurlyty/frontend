@@ -3,6 +3,8 @@ import HeartIcon from "@/assets/icons/HeartIcon";
 import styled from "styled-components";
 import { IUserInfo } from "@/modules/UserModule";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import UserService from "@/services/UserService";
 
 const Container = styled.div`
   position: relative;
@@ -118,13 +120,28 @@ const HeaderGNBText = styled(Link)`
 `;
 
 export default function Header() {
-  const user: IUserInfo = {
-    name: "김컬리",
-    grade: "더 퍼플",
+  const [user, setUser] = useState<IUserInfo>({
     id: null,
-    description: null,
-    isSuper: false,
-  };
+    name: null,
+    rank: null,
+    profile: null,
+    token: null,
+  });
+
+  useEffect(() => {
+    async function getUserInfo() {
+      const resData = await UserService.getUser();
+      const userInfo: IUserInfo = {
+        id: resData.id,
+        name: resData.name,
+        profile: resData.profile,
+        rank: resData.rank,
+        token: resData.token,
+      };
+      setUser(userInfo);
+    }
+    getUserInfo();
+  }, []);
 
   const globalNavigation = [
     { label: "컬리 추천", key: "main", link: "/main" },
@@ -132,14 +149,13 @@ export default function Header() {
   ];
 
   const pathName = window.location.pathname;
-  console.log(pathName);
 
   return (
     <Container>
       <HeaderWrapper>
         <SectionWrapper>
           <HeaderUser to="/mypage">
-            <span>{user.grade}</span>
+            <span>{user.rank}</span>
             <p>{user.name} 님</p>
           </HeaderUser>
         </SectionWrapper>
