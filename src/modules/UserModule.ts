@@ -1,7 +1,7 @@
 export interface IUserInfo {
   id: string | null;
   name: string | null;
-  grade: string | null;
-  description: string | null;
-  isSuper: boolean | false;
+  rank: string | null;
+  profile: string | null;
+  token: string | null;
 }

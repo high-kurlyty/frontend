@@ -23,7 +23,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Noto Sans";
     line-height: 1.5;
     color: var(--text-first);
-    width: 1050px;
     margin: 0 auto;
   }
 

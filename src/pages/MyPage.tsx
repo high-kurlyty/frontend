@@ -4,7 +4,9 @@ import ViewPickList from "@/components/myPage/viewPickList/viewPickList";
 import styled from "styled-components";
 
 const Container = styled.div`
+  width: 1050px;
   padding-top: 65px;
+  margin: 0 auto;
 `;
 
 export default function MyPage() {

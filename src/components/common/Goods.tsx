@@ -1,5 +1,5 @@
 import CartIcon from "@/assets/icons/CartIcon";
-import { IGoodsInfo } from "@/modules/GoodsModue";
+import { IGoodsInfo } from "@/modules/GoodsModule";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -9,6 +9,8 @@ const Container = styled.div`
   height: 405px;
   width: 250px;
   margin: 0 7px;
+  cursor: pointer;
+  user-select: none;
 `;
 
 const ImageContainer = styled.div`

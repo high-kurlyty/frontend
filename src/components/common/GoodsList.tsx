@@ -3,7 +3,7 @@ import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import styled from "styled-components";
 import Goods from "@/components/common/Goods";
 import DetailModal from "@/components/common/DetailModal";
-import { IGoodsInfo } from "@/modules/GoodsModue";
+import { IGoodsInfo } from "@/modules/GoodsModule";
 import { LeftArrow, RightArrow } from "@/components/goodsList/Arrow";
 import usePreventBodyScroll from "@/components/goodsList/preventScroll";
 
@@ -135,7 +135,6 @@ const Mock_Goods = [
 const ScrollFooter = () => <span></span>;
 
 export default function GoodsList(cartId: any) {
-  console.log(cartId);
   const items = Mock_Goods;
   const description = Mock_Description;
   const theme = Mock_Theme;
@@ -172,7 +171,4 @@ export default function GoodsList(cartId: any) {
       </Container>
     </>
   );
-}
-function setModal(arg0: boolean): void {
-  throw new Error("Function not implemented.");
 }
