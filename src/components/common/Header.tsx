@@ -139,17 +139,17 @@ export default function Header() {
     });
 
   useEffect(() => {
-    async function getUserInfo() {
-      const resData = await UserService.getUser();
-      const userInfo: IUserInfo = {
-        id: resData.id,
-        name: resData.name,
-        profile: resData.profile,
-        rank: resData.rank,
-        token: resData.token,
-      };
+    function getUserInfo() {
+      const defaultValue = `{
+        id: null,
+        name: null,
+        rank: null,
+        profile: null,
+        token: null,
+      }`;
+      const value = sessionStorage.getItem("user") ?? defaultValue;
+      const userInfo: IUserInfo = JSON.parse(value);
       setUser(userInfo);
-      setUserSessionStorage(userInfo);
     }
     getUserInfo();
   }, []);

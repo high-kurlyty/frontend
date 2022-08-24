@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import GlobalStyle from "@/styles/GlobalStyle";
 
@@ -7,7 +7,35 @@ import GoodsListPage from "@/pages/GoodsListPage";
 import MyPage from "@/pages/MyPage";
 import NotFound from "@/pages/NotFound";
 
+import useSessionStorage from "@/hooks/useSessionStorage";
+import { IUserInfo } from "@/modules/UserModule";
+import UserService from "@/services/UserService";
+
 function App() {
+  const [userSessionStorage, setUserSessionStorage] =
+    useSessionStorage<IUserInfo>("user", {
+      id: null,
+      name: null,
+      rank: null,
+      profile: null,
+      token: null,
+    });
+
+  useEffect(() => {
+    async function getUserInfo() {
+      const resData = await UserService.getUser();
+      const userInfo: IUserInfo = {
+        id: resData.id,
+        name: resData.name,
+        profile: resData.profile,
+        rank: resData.rank,
+        token: resData.token,
+      };
+      setUserSessionStorage(userInfo);
+    }
+    getUserInfo();
+  }, []);
+
   return (
     <>
       <GlobalStyle />

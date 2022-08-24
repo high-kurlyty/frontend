@@ -1,7 +1,6 @@
-import Header from "@/components/common/Header";
 import styled from "styled-components";
-
 import bannerImg from "@/assets/banner.png";
+import Header from "@/components/common/Header";
 import GoodsList from "@/components/common/GoodsList";
 
 const Banner = styled.img`
