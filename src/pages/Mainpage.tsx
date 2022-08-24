@@ -16,9 +16,8 @@ export default function MainPage() {
     <div>
       <Header />
       <Banner src={bannerImg} />
-      <GoodsList />
-      <GoodsList />
-      <GoodsList />
+      <GoodsList bascketId={2} />;
+      <GoodsList bascketId={4} />;
     </div>
   );
 }

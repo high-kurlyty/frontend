@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import styled from "styled-components";
 import Goods from "@/components/common/Goods";
@@ -6,6 +6,7 @@ import DetailModal from "@/components/common/DetailModal";
 import { IGoodsInfo } from "@/modules/GoodsModule";
 import { LeftArrow, RightArrow } from "@/components/goodsList/Arrow";
 import usePreventBodyScroll from "@/components/goodsList/preventScroll";
+import GoodsServices from "@/services/GoodsServices";
 
 const Container = styled.div`
   display: flex;
@@ -59,88 +60,33 @@ const Title = styled.span`
   }
 `;
 
-const Mock_Title = "쭈꾸미와 아보카도의 조합";
-const Mock_Description = "컬리에서 뽑은 올해의 장바구니";
-const Mock_Theme = "☔️";
-
-const Mock_Goods = [
-  {
-    image: "🐙",
-    name: "[홍대주꾸미] 주꾸미 볶음 300g (냉동) 이름이 이렇게 길수도 있다구여 그럴 떄는~",
-    price: "6800",
-    description: "매콤달콤한 매력의 밥도둑",
-  },
-  {
-    image: "🐙",
-    name: "[홍대주꾸미] 주꾸미 볶음 300g (냉동)",
-    price: "6800",
-    description: "매콤달콤한 매력의 밥도둑",
-  },
-  {
-    image: "🐙",
-    name: "[홍대주꾸미] 주꾸미 볶음 300g (냉동)",
-    price: "6800",
-    description: "매콤달콤한 매력의 밥도둑",
-  },
-  {
-    image: "🐙",
-    name: "[홍대주꾸미] 주꾸미 볶음 300g (냉동)",
-    price: "6800",
-    description: "매콤달콤한 매력의 밥도둑",
-  },
-  {
-    image: "🐙",
-    name: "[홍대주꾸미] 주꾸미 볶음 300g (냉동)",
-    price: "6800",
-    description: "매콤달콤한 매력의 밥도둑",
-  },
-  {
-    image: "🥑",
-    name: "[KF365] 아보카도 200g (1개)",
-    price: "1980",
-    description: "숲 속의 버터",
-  },
-  {
-    image: "🥑",
-    name: "[KF365] 아보카도 200g (1개)",
-    price: "1980",
-    description: "숲 속의 버터",
-  },
-  {
-    image: "🥑",
-    name: "[KF365] 아보카도 200g (1개)",
-    price: "1980",
-    description: "숲 속의 버터",
-  },
-  {
-    image: "🥑",
-    name: "[KF365] 아보카도 200g (1개)",
-    price: "1980",
-    description: "숲 속의 버터",
-  },
-  {
-    image: "🥑",
-    name: "[KF365] 아보카도 200g (1개)",
-    price: "1980",
-    description: "숲 속의 버터",
-  },
-  {
-    image: "🥑",
-    name: "[KF365] 아보카도 200g (1개)",
-    price: "1980",
-    description: "숲 속의 버터",
-  },
-];
-
 const ScrollFooter = () => <span></span>;
 
-export default function GoodsList(cartId: any) {
-  const items = Mock_Goods;
-  const description = Mock_Description;
-  const theme = Mock_Theme;
-  const { disableScroll, enableScroll } = usePreventBodyScroll();
+export default function GoodsList({ bascketId }: { bascketId: number }) {
+  const defaultGoods = {
+    id: null,
+    name: null,
+    category: null,
+    price: null,
+    thumbnail: null,
+    description: null,
+  };
+  const [goodsList, setGoodsList] = useState<IGoodsInfo[]>([defaultGoods]);
+  const [title, setTitle] = useState<string | null>(null);
+  const [theme, setTheme] = useState<string | null>(null);
+  const [description, setDescription] = useState<string | null>(null);
   const [modal, setModal] = useState(false);
-
+  useEffect(() => {
+    async function getGoodsList() {
+      const bascket: any = await GoodsServices.getGoodsList();
+      const goodsList = bascket[bascketId].products;
+      setGoodsList(goodsList);
+      setTitle(`${bascket[bascketId].user.name}님의 장바구니`);
+      setTheme(bascket[bascketId].thumbnail);
+    }
+    getGoodsList();
+  });
+  const { disableScroll, enableScroll } = usePreventBodyScroll();
   return (
     <>
       <Container>
@@ -150,7 +96,7 @@ export default function GoodsList(cartId: any) {
             <Title className="description">{description}</Title>
           ) : null}
           <Title className="title" onClick={() => setModal(true)}>
-            {Mock_Title} 〉{" "}
+            {title} 〉{" "}
           </Title>
         </TitleWrapper>
         <ScrollMenuWrapper
@@ -162,8 +108,8 @@ export default function GoodsList(cartId: any) {
             RightArrow={RightArrow}
             Footer={ScrollFooter}
           >
-            {items.map((item: IGoodsInfo, idx) => (
-              <Goods key={idx} {...item} />
+            {goodsList.map((goods: IGoodsInfo, idx) => (
+              <Goods key={idx} {...goods} />
             ))}
           </GoodsScrollList>
         </ScrollMenuWrapper>

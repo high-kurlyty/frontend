@@ -100,9 +100,10 @@ export default function GoodsListPage() {
             );
           })}
         </Wrapper>
-        <GoodsList />
-        <GoodsList />
-        <GoodsList />
+        <GoodsList bascketId={1} />
+        <GoodsList bascketId={2} />
+        <GoodsList bascketId={3} />
+        <GoodsList bascketId={4} />
       </Container>
     </div>
   );

@@ -92,7 +92,7 @@ export default function Goods(data: IGoodsInfo) {
     <>
       <Container>
         <ImageContainer>
-          <Image>{data.image}</Image>
+          <Image>{data.thumbnail}</Image>
           <CartButton>
             <CartIconContainer>
               <CartIcon color="#fff" />

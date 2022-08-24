@@ -1,6 +1,8 @@
 export interface IGoodsInfo {
-  image: string;
-  name: string;
-  price: string;
-  description: string;
+  id: string | null;
+  name: string | null;
+  category: string | null;
+  price: number | null;
+  thumbnail: string | null;
+  description: string | null;
 }
