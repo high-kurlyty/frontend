@@ -5,6 +5,7 @@ import { IUserInfo } from "@/modules/UserModule";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import UserService from "@/services/UserService";
+import useSessionStorage from "@/hooks/useSessionStorage";
 
 const Container = styled.div`
   position: relative;
@@ -128,6 +129,15 @@ export default function Header() {
     token: null,
   });
 
+  const [userSessionStorage, setUserSessionStorage] =
+    useSessionStorage<IUserInfo>("user", {
+      id: null,
+      name: null,
+      rank: null,
+      profile: null,
+      token: null,
+    });
+
   useEffect(() => {
     async function getUserInfo() {
       const resData = await UserService.getUser();
@@ -139,6 +149,7 @@ export default function Header() {
         token: resData.token,
       };
       setUser(userInfo);
+      setUserSessionStorage(userInfo);
     }
     getUserInfo();
   }, []);
