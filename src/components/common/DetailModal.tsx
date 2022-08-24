@@ -51,16 +51,12 @@ const ContentContainer = styled.div`
   overflow-y: auto;
 `;
 
-const Content = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-evenly; */
-`;
+const Content = styled.div``;
 
 const Mock_Goods = [
   {
     image: "🐙",
-    name: "[홍대주꾸미] 주꾸미 볶음 300g (냉동) 이름이 이렇게 길수도 있다구여 그럴 떄는~",
+    name: "[홍대주꾸미] 주꾸미 볶음 300g (냉동) 이름이 이렇게 길수도 있다구여 그럴 때는~ 어떻게 되냐면~",
     price: "6800",
     description: "매콤달콤한 매력의 밥도둑",
   },

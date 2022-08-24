@@ -1,4 +1,6 @@
 import HeartIcon from "@/assets/icons/HeartIcon";
+import useSessionStorage from "@/hooks/useSessionStorage";
+import FollowService from "@/services/FollowService";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -40,11 +42,24 @@ const SelectAllButton = styled.button`
 
 export default function Button() {
   const [isHeart, setIsHeart] = useState(false);
+  const [user, setUser] = useSessionStorage("user", null);
+
+  async function setFollow() {
+    const resData = await FollowService.setFollow(isHeart, {
+      userId: user && user["id"],
+      followedUserId: "test-id2",
+    });
+    if (resData) {
+      alert("팔로우에 실패했습니다.");
+    } else {
+      setIsHeart(!isHeart);
+    }
+  }
 
   return (
     <ButtonDiv>
       <HeartButton>
-        <HeartIconContainer onClick={() => setIsHeart(!isHeart)}>
+        <HeartIconContainer onClick={setFollow}>
           <HeartIcon
             fill={isHeart ? "var(--red-color)" : "none"}
             stroke={isHeart ? "none" : "var(--primary-color)"}

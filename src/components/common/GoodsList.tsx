@@ -76,6 +76,7 @@ export default function GoodsList({ bascketId }: { bascketId: number }) {
   const [theme, setTheme] = useState<string | null>(null);
   const [description, setDescription] = useState<string | null>(null);
   const [modal, setModal] = useState(false);
+
   useEffect(() => {
     async function getGoodsList() {
       const bascket: any = await GoodsServices.getGoodsList();
@@ -86,6 +87,7 @@ export default function GoodsList({ bascketId }: { bascketId: number }) {
     }
     getGoodsList();
   }, []);
+
   const { disableScroll, enableScroll } = usePreventBodyScroll();
   return (
     <>

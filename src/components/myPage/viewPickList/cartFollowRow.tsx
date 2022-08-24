@@ -12,7 +12,6 @@ const Container = styled.div`
 `;
 
 const Thumbnail = styled.div<IProps>`
-  position: relative;
   width: 60px;
   height: ${(props) => (props.type === "cart" ? "78px" : "60px")};
   margin: 1px 0;

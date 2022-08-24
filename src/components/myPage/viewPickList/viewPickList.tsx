@@ -90,7 +90,8 @@ const MOCK_DATA = [
 ];
 
 export default function ViewPickList({ type }: { type: string }) {
-  const empty = true;
+  // 찜한 장바구니 목록, 팔로우한 목록 length !== 0인지 판별
+  const empty = false;
   return (
     <Container>
       <HeaderArticle>
