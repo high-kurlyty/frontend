@@ -85,7 +85,7 @@ export default function GoodsList({ bascketId }: { bascketId: number }) {
       setTheme(bascket[bascketId].thumbnail);
     }
     getGoodsList();
-  });
+  }, []);
   const { disableScroll, enableScroll } = usePreventBodyScroll();
   return (
     <>
