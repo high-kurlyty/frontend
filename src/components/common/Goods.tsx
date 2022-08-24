@@ -9,6 +9,8 @@ const Container = styled.div`
   height: 405px;
   width: 250px;
   margin: 0 7px;
+  cursor: pointer;
+  user-select: none;
 `;
 
 const ImageContainer = styled.div`

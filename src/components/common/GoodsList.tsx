@@ -3,7 +3,7 @@ import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import styled from "styled-components";
 import Goods from "@/components/common/Goods";
 import DetailModal from "@/components/common/DetailModal";
-import { IGoodsInfo } from "@/modules/GoodsModue";
+import { IGoodsInfo } from "@/modules/GoodsModule";
 import { LeftArrow, RightArrow } from "@/components/goodsList/Arrow";
 import usePreventBodyScroll from "@/components/goodsList/preventScroll";
 
